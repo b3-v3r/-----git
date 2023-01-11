@@ -19,18 +19,17 @@ class Container :
 		elif self.current_volume >= self.__volume :
 			print(f'{self.__name} я полный')
 	
-	def info(self):
-		print(f'{self.__name} = {self.current_volume}')
+	def __str__(self) -> str:
+		return f'{self.__name} = {self.current_volume}'
 
 def main():
 	chainik = Container(name = 'chainik', volume = 700 , current_volume = 700   )
 	krychka = Container(name = 'Krychka', volume = 200, current_volume = 0 , pour_out = 50  )
-	i = 0
-	while i < 10 :
-		chainik.info()
-		krychka.info()
+
+	for _ in range(0, 10):
+		print(chainik)
+		print(krychka)
 		krychka.pour_liqud(chainik.pour_out_liqud())
-		i += 1
 
 
 if __name__ == '__main__':
